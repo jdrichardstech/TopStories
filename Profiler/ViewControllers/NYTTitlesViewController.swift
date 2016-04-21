@@ -122,7 +122,7 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 	func configureCell(cell:UITableViewCell, indexPath:NSIndexPath) -> UITableViewCell{
 		let nytPayload = self.nytArray[indexPath.row]
 		let one = "\(nytPayload.title)"
-		///print("FUCK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+		
 		let x = nytPayload.mediaMetaData[2]
 		nytPayload.imageUrl = x["url"] as! String
 		//print("OK DOKEY \(nytPayload.imageUrl)")
