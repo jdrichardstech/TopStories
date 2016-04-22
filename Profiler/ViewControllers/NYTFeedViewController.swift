@@ -12,11 +12,13 @@ import Alamofire
 class NYTFeedViewController: UIViewController {
  
 	var instructionLabel:UILabel!
-	var businessButton: UIButton!
-	var artsButton: UIButton!
+	var technologyButton: UIButton!
+	//var artsButton: UIButton!
 	var politicsButton: UIButton!
 	var foodButton: UIButton!
 	var worldButton: UIButton!
+	var healthButton: UIButton!
+	var nyButton: UIButton!
 	var realEstateButton: UIButton!
 	var travelButton: UIButton!
 	var internationalButton:UIButton!
@@ -63,22 +65,22 @@ class NYTFeedViewController: UIViewController {
 	
 
 		//businessButton
-		self.nystyleButton = UIButton(type: .Custom)
+		self.nyButton = UIButton(type: .Custom)
 		
-		self.nystyleButton.frame = CGRect(x: 0, y: 475, width: 110, height: 45)
-		self.nystyleButton.center = CGPoint(x: 0.5 * frame.size.width-65, y: 475)
-		self.nystyleButton.backgroundColor = UIColor.blackColor()
-		self.nystyleButton.setTitle("Style", forState: .Normal)
-		self.nystyleButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
-		self.nystyleButton.titleLabel?.textAlignment = .Center
-		self.nystyleButton.layer.cornerRadius = 10
-		self.nystyleButton.layer.borderWidth = 1
-		self.nystyleButton.layer.borderColor = UIColor.lightGrayColor().CGColor
-		self.nystyleButton.titleLabel?.text = "Style"
+		self.nyButton.frame = CGRect(x: 0, y: 475, width: 110, height: 45)
+		self.nyButton.center = CGPoint(x: 0.5 * frame.size.width-65, y: 475)
+		self.nyButton.backgroundColor = UIColor.blackColor()
+		self.nyButton.setTitle("New York", forState: .Normal)
+		self.nyButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
+		self.nyButton.titleLabel?.textAlignment = .Center
+		self.nyButton.layer.cornerRadius = 10
+		self.nyButton.layer.borderWidth = 1
+		self.nyButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+		self.nyButton.titleLabel?.text = "New York"
 		
-		self.nystyleButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionStyle(_:)), forControlEvents: .TouchUpInside)
+		self.nyButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionNY(_:)), forControlEvents: .TouchUpInside)
 		
-		view.addSubview(nystyleButton)
+		view.addSubview(nyButton)
 		
 		
 		//businessButton
@@ -101,40 +103,40 @@ class NYTFeedViewController: UIViewController {
 		
 		
 		//businessButton
-		self.businessButton = UIButton(type: .Custom)
+		self.nystyleButton = UIButton(type: .Custom)
 		
-		self.businessButton.frame = CGRect(x: 0, y: 415, width: 110, height: 45)
-		self.businessButton.center = CGPoint(x: 0.5 * frame.size.width-65, y: 415)
-		self.businessButton.backgroundColor = UIColor.blackColor()
-		self.businessButton.setTitle("Business", forState: .Normal)
-		self.businessButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
-		self.businessButton.titleLabel?.textAlignment = .Center
-		self.businessButton.layer.cornerRadius = 10
-		self.businessButton.layer.borderWidth = 1
-		self.businessButton.layer.borderColor = UIColor.lightGrayColor().CGColor
-		self.businessButton.titleLabel?.text = "Business"
+		self.nystyleButton.frame = CGRect(x: 0, y: 415, width: 110, height: 45)
+		self.nystyleButton.center = CGPoint(x: 0.5 * frame.size.width-65, y: 415)
+		self.nystyleButton.backgroundColor = UIColor.blackColor()
+		self.nystyleButton.setTitle("Style", forState: .Normal)
+		self.nystyleButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
+		self.nystyleButton.titleLabel?.textAlignment = .Center
+		self.nystyleButton.layer.cornerRadius = 10
+		self.nystyleButton.layer.borderWidth = 1
+		self.nystyleButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+		self.nystyleButton.titleLabel?.text = "Style"
 		
-		self.businessButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionBusiness(_:)), forControlEvents: .TouchUpInside)
+		self.nystyleButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionFashion(_:)), forControlEvents: .TouchUpInside)
 		
-		view.addSubview(businessButton)
+		view.addSubview(nystyleButton)
 		
 		//artsButton
-		self.artsButton = UIButton(type: .Custom)
+		self.travelButton = UIButton(type: .Custom)
 		
-		self.artsButton.frame = CGRect(x: 0, y: 415, width: 110, height: 45)
-		self.artsButton.center = CGPoint(x: 0.5 * frame.size.width+65, y: 415)
-		self.artsButton.backgroundColor = UIColor.blackColor()
-		self.artsButton.setTitle("Arts", forState: .Normal)
-		self.artsButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
-		self.artsButton.titleLabel?.textAlignment = .Center
-		self.artsButton.layer.cornerRadius = 10
-		self.artsButton.layer.borderWidth = 1
-		self.artsButton.layer.borderColor = UIColor.lightGrayColor().CGColor
-		self.artsButton.titleLabel?.text = "Arts"
+		self.travelButton.frame = CGRect(x: 0, y: 415, width: 110, height: 45)
+		self.travelButton.center = CGPoint(x: 0.5 * frame.size.width+65, y: 415)
+		self.travelButton.backgroundColor = UIColor.blackColor()
+		self.travelButton.setTitle("Travel", forState: .Normal)
+		self.travelButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
+		self.travelButton.titleLabel?.textAlignment = .Center
+		self.travelButton.layer.cornerRadius = 10
+		self.travelButton.layer.borderWidth = 1
+		self.travelButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+		self.travelButton.titleLabel?.text = "Travel"
 
-		self.artsButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionArts(_:)), forControlEvents: .TouchUpInside)
+		self.travelButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionTravel(_:)), forControlEvents: .TouchUpInside)
 		
-		view.addSubview(artsButton)
+		view.addSubview(travelButton)
 		
 		//realEstateButton
 		self.realEstateButton = UIButton(type: .Custom)
@@ -194,23 +196,23 @@ class NYTFeedViewController: UIViewController {
 		view.addSubview(worldButton)
 		
 		//politicsButton
-		self.politicsButton = UIButton(type: .Custom)
+		self.healthButton = UIButton(type: .Custom)
 		
-		politicsButton.frame = CGRect(x: 0, y: 285, width: 110, height: 45)
-		politicsButton.center = CGPoint(x: 0.5 * frame.size.width+65, y: 285)
-		politicsButton.backgroundColor = UIColor.blackColor()
-		politicsButton.setTitle("Politics", forState: .Normal)
-		politicsButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
-		politicsButton.titleLabel?.textAlignment = .Center
-		politicsButton.layer.cornerRadius = 10
-		politicsButton.layer.borderWidth = 1
-		politicsButton.layer.borderColor = UIColor.lightGrayColor().CGColor
-		politicsButton.titleLabel?.text = "Politics"
+		healthButton.frame = CGRect(x: 0, y: 285, width: 110, height: 45)
+		healthButton.center = CGPoint(x: 0.5 * frame.size.width+65, y: 285)
+		healthButton.backgroundColor = UIColor.blackColor()
+		healthButton.setTitle("Health", forState: .Normal)
+		healthButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
+		healthButton.titleLabel?.textAlignment = .Center
+		healthButton.layer.cornerRadius = 10
+		healthButton.layer.borderWidth = 1
+		healthButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+		healthButton.titleLabel?.text = "Health"
 		
 		
-		politicsButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionPolitics(_:)), forControlEvents: .TouchUpInside)
+		healthButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionHealth(_:)), forControlEvents: .TouchUpInside)
 		
-		view.addSubview(politicsButton)
+		view.addSubview(healthButton)
 
 		
 		self.view = view
@@ -232,19 +234,19 @@ class NYTFeedViewController: UIViewController {
 	
 	
 	
-	func btnNextActionBusiness(btn: UIButton){
+	func btnNextActionFashion(btn: UIButton){
 		//print("btnNextAction")
 		
 		let nytTitlesVc = NYTTitlesViewController()
-		nytTitlesVc.sectionChoice = "business"
+		nytTitlesVc.sectionChoice = "fashion"
 		self.navigationController?.pushViewController(nytTitlesVc, animated: true)
 		
 	}
-	func btnNextActionArts(btn: UIButton){
+	func btnNextActionTravel(btn: UIButton){
 		//print("btnNextAction")
 		
 		let nytTitlesVc = NYTTitlesViewController()
-		nytTitlesVc.sectionChoice = "arts"
+		nytTitlesVc.sectionChoice = "travel"
 		self.navigationController?.pushViewController(nytTitlesVc, animated: true)
 		
 	}
@@ -272,11 +274,11 @@ class NYTFeedViewController: UIViewController {
 		self.navigationController?.pushViewController(nytTitlesVc, animated: true)
 		
 	}
-	func btnNextActionPolitics(btn: UIButton){
+	func btnNextActionHealth(btn: UIButton){
 		//print("btnNextAction")
 		
 		let nytTitlesVc = NYTTitlesViewController()
-		nytTitlesVc.sectionChoice = "politics"
+		nytTitlesVc.sectionChoice = "health"
 		self.navigationController?.pushViewController(nytTitlesVc, animated: true)
 		
 	}
@@ -290,11 +292,11 @@ class NYTFeedViewController: UIViewController {
 		
 	}
 	
-	func btnNextActionStyle(btn: UIButton){
+	func btnNextActionNY(btn: UIButton){
 		//print("btnNextAction")
 		
 		let nytTitlesVc = NYTTitlesViewController()
-		nytTitlesVc.sectionChoice = "style"
+		nytTitlesVc.sectionChoice = "nyregion"
 		self.navigationController?.pushViewController(nytTitlesVc, animated: true)
 		
 	}
