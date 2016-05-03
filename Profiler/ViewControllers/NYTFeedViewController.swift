@@ -251,7 +251,7 @@ class NYTFeedViewController: UIViewController {
 		
 	}
 	func btnNextActionRealEstate(btn: UIButton){
-		print("btnNextActionSports")
+		//print("btnNextActionSports")
 		
 		let nytTitlesVc = NYTTitlesViewController()
 		nytTitlesVc.sectionChoice = "real+estate"
@@ -270,7 +270,7 @@ class NYTFeedViewController: UIViewController {
 		//print("btnNextAction")
 		
 		let nytTitlesVc = NYTTitlesViewController()
-		nytTitlesVc.sectionChoice = "world"
+		nytTitlesVc.sectionChoice = "nyregion"
 		self.navigationController?.pushViewController(nytTitlesVc, animated: true)
 		
 	}

@@ -8,11 +8,12 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
  
 	// MARK: - My Classes
-	
+
 	var nytTable:UITableView!
 	var nytArray = Array<NYTModel>()
 	var media: NSArray!
@@ -53,12 +54,39 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 		
 		
 		let url = "http://api.nytimes.com/svc/mostpopular/v2/mostviewed/\(sectionChoice)/7.json?offset=0&api-key=b3e1e33b6a14725b136d2a0915eb9c60%3A0%3A56929610"
+		
+		
+		//SWIFTY   
+		//
+//		
+//		Alamofire.request(.GET, url).validate().responseJSON { response in
+//			switch response.result {
+//			case .Success:
+//				if let value = response.result.value {
+//					let json = JSON(value)
+//					let pic = json["results"][0]["media"][0]["media-metadata"][2]["url"]
+//				
+//				}
+//			case .Failure(let error):
+//				print(error)
+//			}
+//		}
+//	}
+	
+
+		
+	
+
+		
+
 		Alamofire.request(.GET, url, parameters: nil).responseJSON{response in
 			if let JSON = response.result.value as? Dictionary<String,AnyObject>{
 				
-				print("\(JSON)")
 				
+				//print("\(JSON)")
+				//**************
 				if let results = JSON["results"] as? Array<Dictionary<String,AnyObject>>{
+					
 					
 					//print("\(results)")
 					for nytInfo in results{
@@ -67,6 +95,7 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 						result.populate(nytInfo)
 						self.nytArray.append(result)
 					}
+					
 										
 					
 				}
@@ -121,13 +150,14 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 	
 	func configureCell(cell:UITableViewCell, indexPath:NSIndexPath) -> UITableViewCell{
 		let nytPayload = self.nytArray[indexPath.row]
-		let one = "\(nytPayload.title)"
+		let articleTitle = "\(nytPayload.title)"
+		//*****************issue below
 		
-		let x = nytPayload.mediaMetaData[2]
-		nytPayload.imageUrl = x["url"] as! String
-		//print("OK DOKEY \(nytPayload.imageUrl)")
-		//print("heyyyyyyy \(nytPayload.image), \(nytPayload.imageUrl)")
-		cell.textLabel?.text = one
+		let articleImage = nytPayload.mediaMetaData[2]
+		nytPayload.imageUrl = articleImage["url"] as! String
+		//print("ImageUrl \(nytPayload.imageUrl)")
+		//print("image/imageurl: \(nytPayload.image), \(nytPayload.imageUrl)")
+		cell.textLabel?.text = articleTitle
 		cell.textLabel?.font = UIFont(name:"Avenir", size:13)
 		cell.textLabel?.numberOfLines=0
 		cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
@@ -162,8 +192,6 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 		let itemVc = NYTArticleViewController()
 		itemVc.item = item
 		self.navigationController?.pushViewController(itemVc, animated: true)
-		
-		//self.navigationController?.pushViewController(NYTAViewController(), animated: true)
 	
 	}
 	

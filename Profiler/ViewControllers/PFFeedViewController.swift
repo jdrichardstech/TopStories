@@ -62,8 +62,13 @@ class PFFeedViewController: UIViewController, UITableViewDataSource,UITableViewD
 							self.pfArray.append(result)
 						}
 					}
-					self.pfTable.reloadData()
-				}
+					dispatch_async(dispatch_get_main_queue(), {
+						self.pfTable.reloadData()
+					})
+					
+				
+			}
+				
 			}
 			
 	}

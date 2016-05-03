@@ -2,6 +2,7 @@
  use_frameworks!
  target 'Profiler' do
  pod 'Alamofire'
+ pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
  end
 
 

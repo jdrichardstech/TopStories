@@ -9,13 +9,10 @@
 /* Begin PBXBuildFile section */
 		054931031CC198EB00DDBE1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054931021CC198EB00DDBE1B /* AppDelegate.swift */; };
 		0549310A1CC198EB00DDBE1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 054931091CC198EB00DDBE1B /* Assets.xcassets */; };
-		054931171CC1993B00DDBE1B /* PFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054931161CC1993B00DDBE1B /* PFViewController.swift */; };
-		054931191CC199FA00DDBE1B /* PFFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054931181CC199FA00DDBE1B /* PFFeedViewController.swift */; };
 		05623B1F1CC44F32000C6B3D /* nytimes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05623B1B1CC44F32000C6B3D /* nytimes@2x.png */; };
 		05623B201CC44F32000C6B3D /* nytimes@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05623B1C1CC44F32000C6B3D /* nytimes@3x.png */; };
 		05623B211CC44F32000C6B3D /* times_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05623B1D1CC44F32000C6B3D /* times_5@2x.png */; };
 		05623B221CC44F32000C6B3D /* times_6@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05623B1E1CC44F32000C6B3D /* times_6@3x.png */; };
-		05CAB0061CC1AF68001C44D2 /* PFModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CAB0051CC1AF68001C44D2 /* PFModel.swift */; };
 		05CAB0081CC29E6D001C44D2 /* NYTModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CAB0071CC29E6D001C44D2 /* NYTModel.swift */; };
 		05CAB00C1CC29EAA001C44D2 /* NYTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CAB00B1CC29EAA001C44D2 /* NYTViewController.swift */; };
 		05CAB00E1CC29EC3001C44D2 /* NYTFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CAB00D1CC29EC3001C44D2 /* NYTFeedViewController.swift */; };
@@ -29,13 +26,10 @@
 		054931021CC198EB00DDBE1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		054931091CC198EB00DDBE1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0549310E1CC198EB00DDBE1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		054931161CC1993B00DDBE1B /* PFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFViewController.swift; sourceTree = "<group>"; };
-		054931181CC199FA00DDBE1B /* PFFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFFeedViewController.swift; sourceTree = "<group>"; };
 		05623B1B1CC44F32000C6B3D /* nytimes@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nytimes@2x.png"; sourceTree = "<group>"; };
 		05623B1C1CC44F32000C6B3D /* nytimes@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nytimes@3x.png"; sourceTree = "<group>"; };
 		05623B1D1CC44F32000C6B3D /* times_5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "times_5@2x.png"; sourceTree = "<group>"; };
 		05623B1E1CC44F32000C6B3D /* times_6@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "times_6@3x.png"; sourceTree = "<group>"; };
-		05CAB0051CC1AF68001C44D2 /* PFModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFModel.swift; sourceTree = "<group>"; };
 		05CAB0071CC29E6D001C44D2 /* NYTModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NYTModel.swift; sourceTree = "<group>"; };
 		05CAB00B1CC29EAA001C44D2 /* NYTViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NYTViewController.swift; sourceTree = "<group>"; };
 		05CAB00D1CC29EC3001C44D2 /* NYTFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NYTFeedViewController.swift; sourceTree = "<group>"; };
@@ -94,7 +88,6 @@
 		054931141CC1990700DDBE1B /* BaseClasses */ = {
 			isa = PBXGroup;
 			children = (
-				054931161CC1993B00DDBE1B /* PFViewController.swift */,
 				05CAB00B1CC29EAA001C44D2 /* NYTViewController.swift */,
 			);
 			path = BaseClasses;
@@ -103,7 +96,6 @@
 		054931151CC1991700DDBE1B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				054931181CC199FA00DDBE1B /* PFFeedViewController.swift */,
 				05CAB00D1CC29EC3001C44D2 /* NYTFeedViewController.swift */,
 				05CAB00F1CC2A89D001C44D2 /* NYTTitlesViewController.swift */,
 				05CAB0111CC2F79A001C44D2 /* NYTArticleViewController.swift */,
@@ -114,7 +106,6 @@
 		0549311A1CC19E7C00DDBE1B /* models */ = {
 			isa = PBXGroup;
 			children = (
-				05CAB0051CC1AF68001C44D2 /* PFModel.swift */,
 				05CAB0071CC29E6D001C44D2 /* NYTModel.swift */,
 			);
 			path = models;
@@ -275,12 +266,9 @@
 			files = (
 				05CAB0081CC29E6D001C44D2 /* NYTModel.swift in Sources */,
 				05CAB00C1CC29EAA001C44D2 /* NYTViewController.swift in Sources */,
-				054931171CC1993B00DDBE1B /* PFViewController.swift in Sources */,
-				054931191CC199FA00DDBE1B /* PFFeedViewController.swift in Sources */,
 				054931031CC198EB00DDBE1B /* AppDelegate.swift in Sources */,
 				05CAB00E1CC29EC3001C44D2 /* NYTFeedViewController.swift in Sources */,
 				05CAB0121CC2F79A001C44D2 /* NYTArticleViewController.swift in Sources */,
-				05CAB0061CC1AF68001C44D2 /* PFModel.swift in Sources */,
 				05CAB0101CC2A89D001C44D2 /* NYTTitlesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +364,7 @@
 			baseConfigurationReference = 56B49679C00A68BEC25626D5 /* Pods-Profiler.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Profiler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JDRichardsTech.Profiler;
@@ -388,6 +377,7 @@
 			baseConfigurationReference = F62A0CDB2F215313A7DF64C6 /* Pods-Profiler.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Profiler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JDRichardsTech.Profiler;

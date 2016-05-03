@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class NYTModel: NSObject {
 
@@ -65,15 +66,22 @@ class NYTModel: NSObject {
 			self.media = media
 			
 		}
-
 		
+			//****************issue?
 		for element in media{
-			mediaMetaData = element["media-metadata"]as! Array<Dictionary<String, AnyObject>>
+			mediaMetaData = element["media-metadata"] as! Array<Dictionary<String, AnyObject>>
+			
 			caption = element["caption"] as? String!
 			return
 		}
 		
+		
+
+	
+		
 	}
+	
+	
 	
 }
 
