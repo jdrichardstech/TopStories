@@ -20,7 +20,7 @@ class NYTModel: NSObject {
 	var caption: String!
 	var datePublished:String!
 	var isFetching = false
-	var media: Array<Dictionary<String,AnyObject>>!
+	var media = Array<Dictionary<String,AnyObject>>()
 	var mediaMetaData: Array<Dictionary<String,AnyObject>>!
 	
 	

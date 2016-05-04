@@ -96,7 +96,6 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 					
 					//print("\(results)")
 					for nytInfo in results{
-						
 						let result = NYTModel()
 						result.populate(nytInfo)
 						self.nytArray.append(result)
@@ -149,50 +148,39 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 	}
 	
 	
-	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
-	{
+	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 		return 60 //cell height
 	}
 	
 	func configureCell(cell:UITableViewCell, indexPath:NSIndexPath) -> UITableViewCell{
-		let nytPayload = self.nytArray[indexPath.row]
-		let articleTitle = "\(nytPayload.title)"
+		let article = self.nytArray[indexPath.row]
+		let articleTitle = "\(article.title)"
+        
 		//*****************issue below
-		if (nytPayload.media.count != 0){
-		let articleImage = nytPayload.mediaMetaData[0]
-		nytPayload.imageUrl = articleImage["url"] as! String
-		//print("ImageUrl \(nytPayload.imageUrl)")
-		//print("image/imageurl: \(nytPayload.image), \(nytPayload.imageUrl)")
+		if (article.media.count > 0){
+            let articleImage = article.mediaMetaData[0]
+            article.imageUrl = articleImage["url"] as! String
+            //print("ImageUrl \(nytPayload.imageUrl)")
+            //print("image/imageurl: \(nytPayload.image), \(nytPayload.imageUrl)")
 		}
+        
+        
+        
 		cell.textLabel?.text = articleTitle
-		cell.textLabel?.font = UIFont(name:"Avenir", size:13)
-		cell.textLabel?.numberOfLines=0
-		cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-		
-		
-		
 		
 		//get the image
-		if (nytPayload.image == nil){
-			if(nytPayload.media != nil && nytPayload.imageUrl != nil){
+		if (article.image == nil){
+			if(article.imageUrl != nil){
 		
-			nytPayload.addObserver(self, forKeyPath: "image", options: .Initial, context:nil)
+			article.addObserver(self, forKeyPath: "image", options: .Initial, context:nil)
 			cell.imageView?.image = nil
-			nytPayload.fetchImage()
+			article.fetchImage()
 			return cell
 			}
 		}
-		
-		
-		
 
-		cell.imageView!.layer.cornerRadius = 10 / 2.0
-		cell.imageView!.clipsToBounds = true
-		
 		//place image in tableviewcell
-				cell.imageView?.image = nytPayload.image
-		
-		cell.imageView?.layer.cornerRadius = 10
+        cell.imageView?.image = article.image
 		return cell
 	}
 	
@@ -222,6 +210,12 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 		}
 		
 		let cell = UITableViewCell(style: .Default, reuseIdentifier: cellId)
+        cell.textLabel?.font = UIFont(name:"Avenir", size:13)
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        cell.imageView!.layer.cornerRadius = 10 / 2.0
+        cell.imageView!.clipsToBounds = true
+        cell.imageView?.layer.cornerRadius = 10
 		return self.configureCell(cell,indexPath:indexPath)
 		
 		
