@@ -157,9 +157,19 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 		let articleTitle = "\(article.title)"
         
 		//*****************issue below
-		if (article.media.count > 0){
+		if (article.media.count > 0 && article.mediaMetaData.count > 0){
+			if(article.mediaMetaData.count == 1){
             let articleImage = article.mediaMetaData[0]
-            article.imageUrl = articleImage["url"] as! String
+				article.imageUrl = articleImage["url"] as! String
+			}else if(article.mediaMetaData.count == 2){
+				let articleImage = article.mediaMetaData[1]
+				article.imageUrl = articleImage["url"] as! String
+			}else{
+				let articleImage = article.mediaMetaData[2]
+				article.imageUrl = articleImage["url"] as! String
+			}
+			
+			
             //print("ImageUrl \(nytPayload.imageUrl)")
             //print("image/imageurl: \(nytPayload.image), \(nytPayload.imageUrl)")
 		}
