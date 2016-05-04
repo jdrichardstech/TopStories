@@ -19,6 +19,7 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 	var media: NSArray!
 	var articleType: String!
 	var sectionChoice: String!
+	var arrayOfImageLocations = Array<String>()
 	
 	
 	// MARK: - Lifecycles
@@ -57,22 +58,27 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 		
 		
 		//SWIFTY   
-		//
-//		
+		
+		
 //		Alamofire.request(.GET, url).validate().responseJSON { response in
 //			switch response.result {
 //			case .Success:
 //				if let value = response.result.value {
 //					let json = JSON(value)
-//					let pic = json["results"][0]["media"][0]["media-metadata"][2]["url"]
-//				
+//					let thePics = json["results"].arrayValue
+//					for pic in thePics{
+//						let x = pic["media"][0]["media-metadata"][2]["url"].stringValue
+//						self.arrayOfImageLocations.append(x)
+//						print(thePics)
+//					}
+//					
 //				}
 //			case .Failure(let error):
 //				print(error)
 //			}
 //		}
 //	}
-	
+//	
 
 		
 	
@@ -104,7 +110,7 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 		}
 		
 	}
-	
+
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
@@ -152,11 +158,12 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 		let nytPayload = self.nytArray[indexPath.row]
 		let articleTitle = "\(nytPayload.title)"
 		//*****************issue below
-		
-		let articleImage = nytPayload.mediaMetaData[2]
+		if (nytPayload.media.count != 0){
+		let articleImage = nytPayload.mediaMetaData[0]
 		nytPayload.imageUrl = articleImage["url"] as! String
 		//print("ImageUrl \(nytPayload.imageUrl)")
 		//print("image/imageurl: \(nytPayload.image), \(nytPayload.imageUrl)")
+		}
 		cell.textLabel?.text = articleTitle
 		cell.textLabel?.font = UIFont(name:"Avenir", size:13)
 		cell.textLabel?.numberOfLines=0
@@ -167,11 +174,15 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 		
 		//get the image
 		if (nytPayload.image == nil){
+			if(nytPayload.media != nil && nytPayload.imageUrl != nil){
+		
 			nytPayload.addObserver(self, forKeyPath: "image", options: .Initial, context:nil)
 			cell.imageView?.image = nil
 			nytPayload.fetchImage()
 			return cell
 			}
+		}
+		
 		
 		
 

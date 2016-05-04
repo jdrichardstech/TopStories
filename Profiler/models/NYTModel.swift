@@ -65,23 +65,20 @@ class NYTModel: NSObject {
 		if let media = info["media"] as? Array<Dictionary<String,AnyObject>>{
 			self.media = media
 			
+			
+			for element in media{
+				mediaMetaData = element["media-metadata"] as! Array<Dictionary<String, AnyObject>>
+				
+				caption = element["caption"] as? String!
+				return
+			}
+			
 		}
 		
 			//****************issue?
-		for element in media{
-			mediaMetaData = element["media-metadata"] as! Array<Dictionary<String, AnyObject>>
-			
-			caption = element["caption"] as? String!
-			return
-		}
 		
-		
-
-	
 		
 	}
-	
-	
 	
 }
 

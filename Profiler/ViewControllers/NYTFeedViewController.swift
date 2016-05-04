@@ -270,7 +270,7 @@ class NYTFeedViewController: UIViewController {
 		//print("btnNextAction")
 		
 		let nytTitlesVc = NYTTitlesViewController()
-		nytTitlesVc.sectionChoice = "nyregion"
+		nytTitlesVc.sectionChoice = "world"
 		self.navigationController?.pushViewController(nytTitlesVc, animated: true)
 		
 	}
