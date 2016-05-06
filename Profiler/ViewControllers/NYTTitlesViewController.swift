@@ -155,11 +155,11 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 	func configureCell(cell:UITableViewCell, indexPath:NSIndexPath) -> UITableViewCell{
 		let article = self.nytArray[indexPath.row]
 		let articleTitle = "\(article.title)"
-        
+		
 		//*****************issue below
 		if (article.media.count > 0 && article.mediaMetaData.count > 0){
 			if(article.mediaMetaData.count == 1){
-            let articleImage = article.mediaMetaData[0]
+				let articleImage = article.mediaMetaData[0]
 				article.imageUrl = articleImage["url"] as! String
 			}else if(article.mediaMetaData.count == 2){
 				let articleImage = article.mediaMetaData[1]

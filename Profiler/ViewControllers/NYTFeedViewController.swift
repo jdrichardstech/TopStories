@@ -13,19 +13,22 @@ class NYTFeedViewController: UIViewController {
  
 	var instructionLabel:UILabel!
 	var technologyButton: UIButton!
-	//var artsButton: UIButton!
+	var artsButton: UIButton!
 	var politicsButton: UIButton!
 	var foodButton: UIButton!
 	var worldButton: UIButton!
 	var healthButton: UIButton!
+	var businessButton: UIButton!
 	var nyButton: UIButton!
 	var realEstateButton: UIButton!
 	var travelButton: UIButton!
+	//var technologyButton: UIButton!
 	var internationalButton:UIButton!
 	var nystyleButton:UIButton!
 	var magazineButton: UIButton!
 	var imageView: UIImageView!
 	var image: UIImage = UIImage(named: "nytimes.png")!
+	
 	
 	
 	
@@ -64,6 +67,48 @@ class NYTFeedViewController: UIViewController {
 		view.addSubview(instructionLabel)
 	
 
+		
+		
+		
+		
+		//businessButton
+		self.technologyButton = UIButton(type: .Custom)
+		
+		self.technologyButton.frame = CGRect(x: 0, y: 535, width: 110, height: 45)
+		self.technologyButton.center = CGPoint(x: 0.5 * frame.size.width-65, y: 535)
+		self.technologyButton.backgroundColor = UIColor.blackColor()
+		self.technologyButton.setTitle("Technology", forState: .Normal)
+		self.technologyButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
+		self.technologyButton.titleLabel?.textAlignment = .Center
+		self.technologyButton.layer.cornerRadius = 10
+		self.technologyButton.layer.borderWidth = 1
+		self.technologyButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+		self.technologyButton.titleLabel?.text = "Technology"
+		
+		self.technologyButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionTechnology(_:)), forControlEvents: .TouchUpInside)
+		
+		view.addSubview(technologyButton)
+		
+		
+		//artsButton
+		self.artsButton = UIButton(type: .Custom)
+		
+		self.artsButton.frame = CGRect(x: 0, y: 535, width: 110, height: 45)
+		self.artsButton.center = CGPoint(x: 0.5 * frame.size.width+65, y: 535)
+		self.artsButton.backgroundColor = UIColor.blackColor()
+		self.artsButton.setTitle("Arts", forState: .Normal)
+		self.artsButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
+		self.artsButton.titleLabel?.textAlignment = .Center
+		self.artsButton.layer.cornerRadius = 10
+		self.artsButton.layer.borderWidth = 1
+		self.artsButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+		self.artsButton.titleLabel?.text = "Arts"
+		
+		self.artsButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionArts(_:)), forControlEvents: .TouchUpInside)
+		
+		view.addSubview(artsButton)
+		
+		
 		//businessButton
 		self.nyButton = UIButton(type: .Custom)
 		
@@ -233,6 +278,24 @@ class NYTFeedViewController: UIViewController {
     }
 	
 	
+	func btnNextActionArts(btn: UIButton){
+		//print("btnNextAction")
+		
+		let nytTitlesVc = NYTTitlesViewController()
+		nytTitlesVc.sectionChoice = "arts"
+		self.navigationController?.pushViewController(nytTitlesVc, animated: true)
+		
+	}
+	
+	
+	func btnNextActionTechnology(btn: UIButton){
+		//print("btnNextAction")
+		
+		let nytTitlesVc = NYTTitlesViewController()
+		nytTitlesVc.sectionChoice = "technology"
+		self.navigationController?.pushViewController(nytTitlesVc, animated: true)
+		
+	}
 	
 	func btnNextActionFashion(btn: UIButton){
 		//print("btnNextAction")
