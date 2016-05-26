@@ -24,6 +24,8 @@ class NYTArticleViewController: UIViewController {
 	override func loadView() {
 		super.loadView()
 		
+		
+		
 		//setup frame
 		self.edgesForExtendedLayout = .None
 		let frame = UIScreen.mainScreen().bounds

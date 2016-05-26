@@ -57,30 +57,7 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 		let url = "http://api.nytimes.com/svc/mostpopular/v2/mostviewed/\(sectionChoice)/7.json?offset=0&api-key=b3e1e33b6a14725b136d2a0915eb9c60%3A0%3A56929610"
 		
 		
-		//SWIFTY   
-		
-		
-//		Alamofire.request(.GET, url).validate().responseJSON { response in
-//			switch response.result {
-//			case .Success:
-//				if let value = response.result.value {
-//					let json = JSON(value)
-//					let thePics = json["results"].arrayValue
-//					for pic in thePics{
-//						let x = pic["media"][0]["media-metadata"][2]["url"].stringValue
-//						self.arrayOfImageLocations.append(x)
-//						print(thePics)
-//					}
-//					
-//				}
-//			case .Failure(let error):
-//				print(error)
-//			}
-//		}
-//	}
-//	
-
-		
+	
 	
 
 		
@@ -156,7 +133,7 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 		let article = self.nytArray[indexPath.row]
 		let articleTitle = "\(article.title)"
 		
-		//*****************issue below
+		
 		if (article.media.count > 0 && article.mediaMetaData.count > 0){
 			if(article.mediaMetaData.count == 1){
 				let articleImage = article.mediaMetaData[0]
