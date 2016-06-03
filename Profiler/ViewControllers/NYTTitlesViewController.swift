@@ -50,7 +50,7 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 		self.view = view
 		
 	}
-	
+
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -189,9 +189,15 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 		let item = self.nytArray[indexPath.row]
 		let itemVc = NYTArticleViewController()
 		itemVc.item = item
+		
 		self.navigationController?.pushViewController(itemVc, animated: true)
+		
+		//deselects selected row after moving to the chosen cell
+		tableView.deselectRowAtIndexPath(indexPath, animated: true)
 	
 	}
+	
+
 	
 	// MARK: - TableViewDatasource Delegates
 	
@@ -223,7 +229,7 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 	
 	
 	
-
+	
 	
 	
 	
