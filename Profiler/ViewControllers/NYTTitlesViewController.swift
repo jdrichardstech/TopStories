@@ -29,7 +29,7 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 	
 	override func loadView() {
 		super.loadView()
-				self.edgesForExtendedLayout = .None
+				
 		let frame = UIScreen.mainScreen().bounds
 		let view = UIView(frame: frame)
 		view.backgroundColor = UIColor.lightGrayColor()
