@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class NYTArticleViewController: UIViewController {
+class NYTArticleViewController: UIViewController, SFSafariViewControllerDelegate {
 
 	var imageView:UIImageView!
 	var item: NYTModel!
@@ -114,12 +115,17 @@ class NYTArticleViewController: UIViewController {
 	func goToUrl(){
 	
 		if let url = NSURL(string: self.item.articleUrl) {
-			UIApplication.sharedApplication().openURL(url)
+			let vc = SFSafariViewController(URL:url, entersReaderIfAvailable: true)
+			vc.delegate = self
+			//UIApplication.sharedApplication().openURL(url)
+			presentViewController(vc, animated: true, completion: nil)
 		}
 	}
 
 	
-	
+	func safariViewControllerDidFinish(controller: SFSafariViewController) {
+		dismissViewControllerAnimated(true, completion: nil)
+	}
 	
 	
 

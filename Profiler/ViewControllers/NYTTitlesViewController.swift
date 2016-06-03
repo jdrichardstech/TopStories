@@ -10,16 +10,18 @@ import UIKit
 import Alamofire
 
 
+
 class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
  
 	// MARK: - My Classes
 
 	var nytTable:UITableView!
+	
 	var nytArray = Array<NYTModel>()
 	var media: NSArray!
 	var articleType: String!
 	var sectionChoice: String!
-	var arrayOfImageLocations = Array<String>()
+	
 	
 	
 	// MARK: - Lifecycles
@@ -32,6 +34,7 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 		let frame = UIScreen.mainScreen().bounds
 		let view = UIView(frame: frame)
 		view.backgroundColor = UIColor.lightGrayColor()
+		
 		
 		self.nytTable = UITableView(frame: frame)
 		self.nytTable.dataSource = self
@@ -107,7 +110,15 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 		return header
 	}
 	
+	func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+		let footer = UIView()
+		footer.backgroundColor = UIColor.blackColor()
+		return footer
+	}
 	
+	func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+		return 40
+	}
 	
 	
 	
@@ -120,6 +131,7 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 			if (keyPath == "image"){
 			//print("IMAGE DOWNLOADED!!!")
 				self.nytTable.reloadData()
+				
 			}
 		})
 	}
@@ -203,6 +215,7 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
         cell.imageView!.layer.cornerRadius = 10 / 2.0
         cell.imageView!.clipsToBounds = true
         cell.imageView?.layer.cornerRadius = 10
+		cell.contentView.layoutMargins.bottom = 10
 		return self.configureCell(cell,indexPath:indexPath)
 		
 		
@@ -210,9 +223,7 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 	
 	
 	
-	
-	
-	
+
 	
 	
 	
