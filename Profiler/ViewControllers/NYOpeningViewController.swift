@@ -100,7 +100,7 @@ class NYTOpeningViewController: UIViewController {
 		self.instructionLabel = UILabel(frame: CGRect(x: 0, y: 210, width: frame.size.width-20, height: 200))
 		self.instructionLabel.center = CGPoint(x: 0.5 * frame.size.width, y: 210)
 		self.instructionLabel?.textAlignment = .Center
-		self.instructionLabel?.text = "Read the Top 20 Stories in each section from the past 20 days"
+		self.instructionLabel?.text = "Read the Top 20 Stories in each section from the past 7 days"
 		self.instructionLabel?.font = UIFont(name:"HelveticaNeue", size:20)
 		self.instructionLabel?.textColor = UIColor.whiteColor()
 		self.instructionLabel?.numberOfLines=0
