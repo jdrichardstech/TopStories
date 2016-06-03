@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
+
 
 class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
  
