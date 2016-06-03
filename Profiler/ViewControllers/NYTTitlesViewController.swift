@@ -29,12 +29,12 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 	
 	override func loadView() {
 		super.loadView()
-		
-		self.edgesForExtendedLayout = .None
+				self.edgesForExtendedLayout = .None
 		let frame = UIScreen.mainScreen().bounds
 		let view = UIView(frame: frame)
 		view.backgroundColor = UIColor.lightGrayColor()
 		
+
 		
 		self.nytTable = UITableView(frame: frame)
 		self.nytTable.dataSource = self
@@ -55,7 +55,8 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		
+	
+
 		
 		let url = "http://api.nytimes.com/svc/mostpopular/v2/mostviewed/\(sectionChoice)/7.json?offset=0&api-key=b3e1e33b6a14725b136d2a0915eb9c60%3A0%3A56929610"
 		
@@ -110,15 +111,7 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 		return header
 	}
 	
-	func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-		let footer = UIView()
-		footer.backgroundColor = UIColor.blackColor()
-		return footer
-	}
-	
-	func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-		return 40
-	}
+
 	
 	
 	

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NYTViewController: NYTFeedViewController {
+class NYTViewController: NYTOpeningViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

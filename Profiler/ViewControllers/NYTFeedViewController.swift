@@ -17,16 +17,18 @@ class NYTFeedViewController: UIViewController {
 	var politicsButton: UIButton!
 	var foodButton: UIButton!
 	var worldButton: UIButton!
-	//var financeButton: UIButton!
-	//var healthButton: UIButton!
+	var financeButton: UIButton!
+	var USButton: UIButton!
 	var businessButton: UIButton!
 	var nyButton: UIButton!
 	var realEstateButton: UIButton!
+	var healthButton: UIButton!
 	var travelButton: UIButton!
 	var sportsButton: UIButton!
 	var internationalButton:UIButton!
 	var nystyleButton:UIButton!
 	var magazineButton: UIButton!
+	var opinionButton: UIButton!
 	var imageView: UIImageView!
 	var image: UIImage = UIImage(named: "nytimes.png")!
 	
@@ -47,7 +49,7 @@ class NYTFeedViewController: UIViewController {
 		self.edgesForExtendedLayout = .None
 		let frame = UIScreen.mainScreen().bounds
 		let view = UIView(frame: frame)
-		
+		self.navigationItem.hidesBackButton = true
 		view.backgroundColor = UIColor(patternImage: UIImage(named: "times_5.png")!)
 		
 		
@@ -60,15 +62,15 @@ class NYTFeedViewController: UIViewController {
 		
 		
 		//add instruction label
-		self.instructionLabel = UILabel(frame: CGRect(x: 0, y: 210, width: frame.size.width-20, height: 200))
-		self.instructionLabel.center = CGPoint(x: 0.5 * frame.size.width, y: 210)
-		self.instructionLabel?.text = "Choose a section below to read the top NY Times stories of the past week:"
-		self.instructionLabel?.font = UIFont(name:"HelveticaNeue", size:17)
-		self.instructionLabel?.textColor = UIColor.whiteColor()
-		self.instructionLabel?.numberOfLines=0
-		self.instructionLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-		view.addSubview(instructionLabel)
-	
+//		self.instructionLabel = UILabel(frame: CGRect(x: 0, y: 210, width: frame.size.width-20, height: 200))
+//		self.instructionLabel.center = CGPoint(x: 0.5 * frame.size.width, y: 210)
+//		self.instructionLabel?.text = "Choose a section below to read the top NY Times stories of the past week:"
+//		self.instructionLabel?.font = UIFont(name:"HelveticaNeue", size:17)
+//		self.instructionLabel?.textColor = UIColor.whiteColor()
+//		self.instructionLabel?.numberOfLines=0
+//		self.instructionLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+//		view.addSubview(instructionLabel)
+//	
 
 		
 		
@@ -308,7 +310,64 @@ class NYTFeedViewController: UIViewController {
 		sportsButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionSports(_:)), forControlEvents: .TouchUpInside)
 		
 		view.addSubview(sportsButton)
-
+		
+		
+		//healthButton
+		self.healthButton = UIButton(type: .Custom)
+		
+		healthButton.frame = CGRect(x: 0, y: 230, width: 85, height: 45)
+		healthButton.center = CGPoint(x:frame.size.width-60, y: 230)
+		healthButton.backgroundColor = UIColor.blackColor()
+		healthButton.setTitle("Health", forState: .Normal)
+		healthButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
+		healthButton.titleLabel?.textAlignment = .Center
+		healthButton.layer.cornerRadius = 10
+		healthButton.layer.borderWidth = 1
+		healthButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+		healthButton.titleLabel?.font = UIFont(name:"Arial", size: 14)
+		
+		
+		healthButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionHealth(_:)), forControlEvents: .TouchUpInside)
+		
+		view.addSubview(healthButton)
+		
+		//opinionButton
+		self.opinionButton = UIButton(type: .Custom)
+		
+		self.opinionButton.frame = CGRect(x: 0, y: 230, width: 85, height: 45)
+		self.opinionButton.center = CGPoint(x: 0.5 * frame.size.width, y: 230)
+		self.opinionButton.backgroundColor = UIColor.blackColor()
+		self.opinionButton.setTitle("Opinion", forState: .Normal)
+		self.opinionButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
+		self.opinionButton.titleLabel?.textAlignment = .Center
+		self.opinionButton.layer.cornerRadius = 10
+		self.opinionButton.layer.borderWidth = 1
+		self.opinionButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+		self.opinionButton.titleLabel?.font = UIFont(name:"Arial", size: 14)
+		
+		
+		
+		self.opinionButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionOpinion(_:)), forControlEvents: .TouchUpInside)
+		
+		view.addSubview(opinionButton)
+		
+		//USButton
+		self.USButton = UIButton(type: .Custom)
+		
+		self.USButton.frame = CGRect(x: 0, y: 230, width: 85, height: 45)
+		self.USButton.center = CGPoint(x: 60, y: 230)
+		self.USButton.backgroundColor = UIColor.blackColor()
+		self.USButton.setTitle("U.S.", forState: .Normal)
+		self.USButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
+		self.USButton.titleLabel?.textAlignment = .Center
+		self.USButton.layer.cornerRadius = 10
+		self.USButton.layer.borderWidth = 1
+		self.USButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+		self.USButton.titleLabel?.font = UIFont(name:"Arial", size: 14)
+		
+		USButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionUSNews(_:)), forControlEvents: .TouchUpInside)
+		
+		view.addSubview(USButton)
 		
 		self.view = view
 		
@@ -430,6 +489,35 @@ class NYTFeedViewController: UIViewController {
 		self.navigationController?.pushViewController(nytTitlesVc, animated: true)
 		
 	}
+	
+	func btnNextActionOpinion(btn: UIButton){
+		//print("btnNextAction")
+		
+		let nytTitlesVc = NYTTitlesViewController()
+		nytTitlesVc.sectionChoice = "opinion"
+		self.navigationController?.pushViewController(nytTitlesVc, animated: true)
+		
+	}
+	
+	func btnNextActionUSNews(btn: UIButton){
+		//print("btnNextAction")
+		
+		let nytTitlesVc = NYTTitlesViewController()
+		nytTitlesVc.sectionChoice = "national"
+		self.navigationController?.pushViewController(nytTitlesVc, animated: true)
+		
+	}
+	
+	func btnNextActionHealth(btn: UIButton){
+		//print("btnNextAction")
+		
+		let nytTitlesVc = NYTTitlesViewController()
+		nytTitlesVc.sectionChoice = "health"
+		self.navigationController?.pushViewController(nytTitlesVc, animated: true)
+		
+	}
+	
+
 
 	
 	
