@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		//code to define the frame of the whole app
 		self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-		//self.window?.backgroundColor = UIColor.whiteColor()
 		let NYTVc = NYTViewController() 
 		let navCtr = UINavigationController(rootViewController: NYTVc)
 		self.window?.rootViewController = navCtr
