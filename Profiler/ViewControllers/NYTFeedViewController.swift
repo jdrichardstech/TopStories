@@ -7,10 +7,10 @@
 //
 
 import UIKit
-//import Alamofire
+
 
 class NYTFeedViewController: UIViewController {
- 
+ //MARK: - Variable Declarations
 	var instructionLabel:UILabel!
 	var technologyButton: UIButton!
 	var artsButton: UIButton!
@@ -45,7 +45,7 @@ class NYTFeedViewController: UIViewController {
 		
 		
 		//set frame
-		self.title = "Top Stories"
+		self.title = "Top Story"
 		self.edgesForExtendedLayout = .None
 		let frame = UIScreen.mainScreen().bounds
 		let view = UIView(frame: frame)
@@ -61,17 +61,7 @@ class NYTFeedViewController: UIViewController {
 		view.addSubview(imageView)
 		
 		
-		//add instruction label
-//		self.instructionLabel = UILabel(frame: CGRect(x: 0, y: 210, width: frame.size.width-20, height: 200))
-//		self.instructionLabel.center = CGPoint(x: 0.5 * frame.size.width, y: 210)
-//		self.instructionLabel?.text = "Choose a section below to read the top NY Times stories of the past week:"
-//		self.instructionLabel?.font = UIFont(name:"HelveticaNeue", size:17)
-//		self.instructionLabel?.textColor = UIColor.whiteColor()
-//		self.instructionLabel?.numberOfLines=0
-//		self.instructionLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-//		view.addSubview(instructionLabel)
-//	
-
+		
 		
 		
 		//businessButton
@@ -386,6 +376,10 @@ class NYTFeedViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 	
+	
+	
+	// MARK: - Button Functions
+	
 	func btnNextActionBusiness(btn: UIButton){
 		//print("btnNextAction")
 		
@@ -521,14 +515,8 @@ class NYTFeedViewController: UIViewController {
 
 	
 	
-    /*
-    // MARK: - Navigation
+	
+	
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

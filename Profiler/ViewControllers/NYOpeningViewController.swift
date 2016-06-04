@@ -7,7 +7,8 @@
 //
 
 import UIKit
-//import Alamofire
+
+//MARK: - Timer Class
 
 class Timer: NSObject {
 	
@@ -44,20 +45,15 @@ class Timer: NSObject {
 	}
 }
 
-
+	//MARK: - ViewController Class
 
 class NYTOpeningViewController: UIViewController {
  
+	//MARK: - Variable Declarations
+	
 	var instructionLabel:UILabel!
-
 	var imageView: UIImageView!
-	
 	var nextViewButton: UIButton!
-
-	
-	
-	
-	
 	
 	
 	// MARK: - Lifecycles
@@ -76,7 +72,7 @@ class NYTOpeningViewController: UIViewController {
 		})
 		
 		//set frame
-		self.title = "Top Stories"
+		self.title = "Top Story"
 		self.edgesForExtendedLayout = .None
 		let frame = UIScreen.mainScreen().bounds
 		let view = UIView(frame: frame)
@@ -86,31 +82,27 @@ class NYTOpeningViewController: UIViewController {
 
 		
 		//add instruction label
-		self.instructionLabel = UILabel(frame: CGRect(x: 0, y: 110, width: frame.size.width-20, height: 200))
-		self.instructionLabel.center = CGPoint(x: 0.5 * frame.size.width, y: 110)
+		self.instructionLabel = UILabel(frame: CGRect(x: 0, y: 170, width: frame.size.width-20, height: 200))
+		self.instructionLabel.center = CGPoint(x: 0.5 * frame.size.width, y: 170)
 		self.instructionLabel?.text = "TopStory"
 		self.instructionLabel?.textAlignment = .Center
-		self.instructionLabel?.font = UIFont(name:"HelveticaNeue", size:40)
+		self.instructionLabel?.font = UIFont(name:"AmericanTypewriter-Bold", size:60)
 		self.instructionLabel?.textColor = UIColor.whiteColor()
 		self.instructionLabel?.numberOfLines=0
 		self.instructionLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
 		view.addSubview(instructionLabel)
 		
 		//add instruction label
-		self.instructionLabel = UILabel(frame: CGRect(x: 0, y: 210, width: frame.size.width-20, height: 200))
-		self.instructionLabel.center = CGPoint(x: 0.5 * frame.size.width, y: 210)
+		self.instructionLabel = UILabel(frame: CGRect(x: 0, y: 270, width: frame.size.width-20, height: 200))
+		self.instructionLabel.center = CGPoint(x: 0.5 * frame.size.width, y: 270)
 		self.instructionLabel?.textAlignment = .Center
-		self.instructionLabel?.text = "Read the Top 20 Stories in each section from the past 7 days"
+		self.instructionLabel?.text = "Read the Top 20 NY Times Articles in each section from the past 7 days"
 		self.instructionLabel?.font = UIFont(name:"HelveticaNeue", size:20)
 		self.instructionLabel?.textColor = UIColor.whiteColor()
 		self.instructionLabel?.numberOfLines=0
 		self.instructionLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
 		view.addSubview(instructionLabel)
 		
-		
-		
-		
-			
 		
 		self.view = view
 		
@@ -120,30 +112,16 @@ class NYTOpeningViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		
-		
-		
-		
+
 	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
+	
 	}
 	
 
+}
 	
-	
-	}
-	
-	/*
-	// MARK: - Navigation
-	
-	// In a storyboard-based application, you will often want to do a little preparation before navigation
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-	// Get the new view controller using segue.destinationViewController.
-	// Pass the selected object to the new view controller.
-	}
-	*/
-	
+
 

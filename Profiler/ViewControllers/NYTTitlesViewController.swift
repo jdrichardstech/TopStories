@@ -40,10 +40,7 @@ class NYTTitlesViewController: UIViewController,UITableViewDataSource,UITableVie
 		self.nytTable.dataSource = self
 		self.nytTable.delegate = self
 		self.nytTable.separatorColor = UIColor.clearColor()
-		
-		
-		
-		
+	
 		
 		view.addSubview(nytTable)
 		
