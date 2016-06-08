@@ -1,6 +1,6 @@
 //
 //  NYTFeedViewController.swift
-//  Profiler
+//  TopNwes
 //
 //  Created by Devinci on 4/16/16.
 //  Copyright © 2016 JDRichardsTech. All rights reserved.
@@ -45,7 +45,7 @@ class NYTFeedViewController: UIViewController {
 		
 		
 		//set frame
-		self.title = "Top Story"
+		self.title = "Top Nwes"
 		self.edgesForExtendedLayout = .None
 		let frame = UIScreen.mainScreen().bounds
 		let view = UIView(frame: frame)
@@ -510,13 +510,6 @@ class NYTFeedViewController: UIViewController {
 		self.navigationController?.pushViewController(nytTitlesVc, animated: true)
 		
 	}
-	
-
-
-	
-	
-	
-	
 
 
 }

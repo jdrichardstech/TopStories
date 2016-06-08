@@ -1,6 +1,6 @@
 //
 //  NYTFeedViewController.swift
-//  Profiler
+//  TopNwes
 //
 //  Created by Devinci on 4/16/16.
 //  Copyright © 2016 JDRichardsTech. All rights reserved.

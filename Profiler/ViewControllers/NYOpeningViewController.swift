@@ -1,6 +1,6 @@
 //
 //  NYTFeedViewController.swift
-//  Profiler
+//  TopNwes
 //
 //  Created by Devinci on 4/16/16.
 //  Copyright © 2016 JDRichardsTech. All rights reserved.
@@ -72,7 +72,7 @@ class NYTOpeningViewController: UIViewController {
 		})
 		
 		//set frame
-		self.title = "Top Story"
+		self.title = "Top Nwes"
 		self.edgesForExtendedLayout = .None
 		let frame = UIScreen.mainScreen().bounds
 		let view = UIView(frame: frame)
@@ -84,7 +84,7 @@ class NYTOpeningViewController: UIViewController {
 		//add instruction label
 		self.instructionLabel = UILabel(frame: CGRect(x: 0, y: 170, width: frame.size.width-20, height: 200))
 		self.instructionLabel.center = CGPoint(x: 0.5 * frame.size.width, y: 170)
-		self.instructionLabel?.text = "TopStory"
+		self.instructionLabel?.text = "TopNwes"
 		self.instructionLabel?.textAlignment = .Center
 		self.instructionLabel?.font = UIFont(name:"AmericanTypewriter-Bold", size:60)
 		self.instructionLabel?.textColor = UIColor.whiteColor()
@@ -106,18 +106,6 @@ class NYTOpeningViewController: UIViewController {
 		
 		self.view = view
 		
-	}
-	
-	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		
-
-	}
-	
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-	
 	}
 	
 
