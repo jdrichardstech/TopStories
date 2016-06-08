@@ -37,6 +37,7 @@ class NYTArticleViewController: UIViewController, SFSafariViewControllerDelegate
 		//add image
 		self.imageView = UIImageView(image: self.item.image)
 		self.imageView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: 250)
+		self.imageView.contentMode = .ScaleAspectFit
 		view.addSubview(imageView)
 		
 		//add caption under image
@@ -127,6 +128,7 @@ class NYTArticleViewController: UIViewController, SFSafariViewControllerDelegate
 	func safariViewControllerDidFinish(controller: SFSafariViewController) {
 		dismissViewControllerAnimated(true, completion: nil)
 	}
+	
 	
 
 }
