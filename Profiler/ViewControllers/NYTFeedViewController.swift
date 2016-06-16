@@ -9,8 +9,10 @@
 import UIKit
 
 
-class NYTFeedViewController: UIViewController {
+class NYTFeedViewController: UIViewController, UIScrollViewDelegate {
  //MARK: - Variable Declarations
+	var scrollButtons: UIScrollView!
+	
 	var instructionLabel:UILabel!
 	var technologyButton: UIButton!
 	var artsButton: UIButton!
@@ -62,13 +64,23 @@ class NYTFeedViewController: UIViewController {
 		
 		
 		
+		self.scrollButtons = UIScrollView(frame: CGRect(x:0, y: 150, width:frame.size.width,height:frame.size.height))
+		self.scrollButtons.backgroundColor = UIColor(patternImage: UIImage(named: "times_5.png")!)
 		
+		view.addSubview(scrollButtons)
+		
+		scrollButtons.contentSize = CGSize(width: frame.width, height: frame.size.height+50)
+		scrollButtons.pagingEnabled = false
+		scrollButtons.delegate = self
+		
+
+
 		
 		//businessButton
 		self.businessButton = UIButton(type: .Custom)
 		
-		self.businessButton.frame = CGRect(x: 0, y: 450, width: 85, height: 45)
-		self.businessButton.center = CGPoint(x: frame.size.width-60, y: 450)
+		self.businessButton.frame = CGRect(x: 0, y: 255, width: 85, height: 45)
+		self.businessButton.center = CGPoint(x: frame.size.width-60, y: 255)
 		self.businessButton.backgroundColor = UIColor.blackColor()
 		self.businessButton.setTitle("Business", forState: .Normal)
 		self.businessButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
@@ -80,13 +92,13 @@ class NYTFeedViewController: UIViewController {
 		
 		self.businessButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionBusiness(_:)), forControlEvents: .TouchUpInside)
 		
-		view.addSubview(businessButton)
+		self.scrollButtons.addSubview(businessButton)
 		
 		//technologyButton
 		self.technologyButton = UIButton(type: .Custom)
 		
-		self.technologyButton.frame = CGRect(x: 0, y: 450, width: 85, height: 45)
-		self.technologyButton.center = CGPoint(x: 0.5 * frame.size.width, y: 450)
+		self.technologyButton.frame = CGRect(x: 0, y: 255, width: 85, height: 45)
+		self.technologyButton.center = CGPoint(x: 0.5 * frame.size.width, y: 255)
 		self.technologyButton.backgroundColor = UIColor.blackColor()
 		self.technologyButton.setTitle("Technology", forState: .Normal)
 		self.technologyButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
@@ -98,15 +110,15 @@ class NYTFeedViewController: UIViewController {
 		
 		self.technologyButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionTechnology(_:)), forControlEvents: .TouchUpInside)
 		
-		view.addSubview(technologyButton)
+		self.scrollButtons.addSubview(technologyButton)
 		
 		
 		
 		//politicsButton
 		self.politicsButton = UIButton(type: .Custom)
 		
-		self.politicsButton.frame = CGRect(x: 0, y: 450, width: 85, height: 45)
-		self.politicsButton.center = CGPoint(x: 60, y: 450)
+		self.politicsButton.frame = CGRect(x: 0, y: 255, width: 85, height: 45)
+		self.politicsButton.center = CGPoint(x: 60, y: 255)
 		self.politicsButton.backgroundColor = UIColor.blackColor()
 		self.politicsButton.setTitle("Politics", forState: .Normal)
 		self.politicsButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
@@ -119,7 +131,7 @@ class NYTFeedViewController: UIViewController {
 		
 		self.politicsButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionPolitics(_:)), forControlEvents: .TouchUpInside)
 		
-		view.addSubview(politicsButton)
+		self.scrollButtons.addSubview(politicsButton)
 		
 		
 		
@@ -128,8 +140,8 @@ class NYTFeedViewController: UIViewController {
 		//artsButton
 		self.artsButton = UIButton(type: .Custom)
 		
-		self.artsButton.frame = CGRect(x: 0, y: 395, width: 85, height: 45)
-		self.artsButton.center = CGPoint(x: frame.size.width-60, y: 395)
+		self.artsButton.frame = CGRect(x: 0, y: 200, width: 85, height: 45)
+		self.artsButton.center = CGPoint(x: frame.size.width-60, y: 200)
 		self.artsButton.backgroundColor = UIColor.blackColor()
 		self.artsButton.setTitle("Arts", forState: .Normal)
 		self.artsButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
@@ -142,14 +154,14 @@ class NYTFeedViewController: UIViewController {
 		
 		self.artsButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionArts(_:)), forControlEvents: .TouchUpInside)
 		
-		view.addSubview(artsButton)
+		self.scrollButtons.addSubview(artsButton)
 		
 		
 		//businessButton
 		self.nyButton = UIButton(type: .Custom)
 		
-		self.nyButton.frame = CGRect(x: 0, y: 395, width: 85, height: 45)
-		self.nyButton.center = CGPoint(x: 0.5 * frame.size.width, y: 395)
+		self.nyButton.frame = CGRect(x: 0, y: 200, width: 85, height: 45)
+		self.nyButton.center = CGPoint(x: 0.5 * frame.size.width, y: 200)
 		self.nyButton.backgroundColor = UIColor.blackColor()
 		self.nyButton.setTitle("New York", forState: .Normal)
 		self.nyButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
@@ -162,14 +174,14 @@ class NYTFeedViewController: UIViewController {
 		
 		self.nyButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionNY(_:)), forControlEvents: .TouchUpInside)
 		
-		view.addSubview(nyButton)
+		self.scrollButtons.addSubview(nyButton)
 		
 		
 		//magazineButton
 		self.magazineButton = UIButton(type: .Custom)
 		
-		self.magazineButton.frame = CGRect(x: 0, y: 395, width: 85, height: 45)
-		self.magazineButton.center = CGPoint(x: 60, y: 395)
+		self.magazineButton.frame = CGRect(x: 0, y: 200, width: 85, height: 45)
+		self.magazineButton.center = CGPoint(x: 60, y: 200)
 		self.magazineButton.backgroundColor = UIColor.blackColor()
 		self.magazineButton.setTitle("Magazine", forState: .Normal)
 		self.magazineButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
@@ -182,14 +194,14 @@ class NYTFeedViewController: UIViewController {
 		
 		self.magazineButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionMagazine(_:)), forControlEvents: .TouchUpInside)
 		
-		view.addSubview(magazineButton)
+		self.scrollButtons.addSubview(magazineButton)
 		
 		
 		//businessButton
 		self.nystyleButton = UIButton(type: .Custom)
 		
-		self.nystyleButton.frame = CGRect(x: 0, y: 340, width: 85, height: 45)
-		self.nystyleButton.center = CGPoint(x: 0.5 * frame.size.width, y: 340)
+		self.nystyleButton.frame = CGRect(x: 0, y: 145, width: 85, height: 45)
+		self.nystyleButton.center = CGPoint(x: 0.5 * frame.size.width, y: 145)
 		self.nystyleButton.backgroundColor = UIColor.blackColor()
 		self.nystyleButton.setTitle("Style", forState: .Normal)
 		self.nystyleButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
@@ -202,13 +214,13 @@ class NYTFeedViewController: UIViewController {
 		
 		self.nystyleButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionFashion(_:)), forControlEvents: .TouchUpInside)
 		
-		view.addSubview(nystyleButton)
+		self.scrollButtons.addSubview(nystyleButton)
 		
 		//travelButton
 		self.travelButton = UIButton(type: .Custom)
 		
-		self.travelButton.frame = CGRect(x: 0, y: 340, width: 85, height: 45)
-		self.travelButton.center = CGPoint(x:frame.size.width-60, y: 340)
+		self.travelButton.frame = CGRect(x: 0, y: 145, width: 85, height: 45)
+		self.travelButton.center = CGPoint(x:frame.size.width-60, y: 145)
 		self.travelButton.backgroundColor = UIColor.blackColor()
 		self.travelButton.setTitle("Travel", forState: .Normal)
 		self.travelButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
@@ -221,13 +233,13 @@ class NYTFeedViewController: UIViewController {
 
 		self.travelButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionTravel(_:)), forControlEvents: .TouchUpInside)
 		
-		view.addSubview(travelButton)
+		self.scrollButtons.addSubview(travelButton)
 		
 		//realEstateButton
 		self.realEstateButton = UIButton(type: .Custom)
 		
-		self.realEstateButton.frame = CGRect(x: 0, y: 340, width: 85, height: 45)
-		self.realEstateButton.center = CGPoint(x: 60, y: 340)
+		self.realEstateButton.frame = CGRect(x: 0, y: 145, width: 85, height: 45)
+		self.realEstateButton.center = CGPoint(x: 60, y: 145)
 		
 		self.realEstateButton.backgroundColor = UIColor.blackColor()
 		self.realEstateButton.setTitle("Real Estate", forState: .Normal)
@@ -240,13 +252,13 @@ class NYTFeedViewController: UIViewController {
 		
 		self.realEstateButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionRealEstate(_:)), forControlEvents: .TouchUpInside)
 		
-		view.addSubview(realEstateButton)
+		self.scrollButtons.addSubview(realEstateButton)
 		
 		//foodButton
 		self.foodButton = UIButton(type: .Custom)
 		
-		self.foodButton.frame = CGRect(x: 0, y: 285, width: 85, height: 45)
-		self.foodButton.center = CGPoint(x: 0.5 * frame.size.width, y: 285)
+		self.foodButton.frame = CGRect(x: 0, y: 90, width: 85, height: 45)
+		self.foodButton.center = CGPoint(x: 0.5 * frame.size.width, y: 90)
 		self.foodButton.backgroundColor = UIColor.blackColor()
 		self.foodButton.setTitle("Food", forState: .Normal)
 		self.foodButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
@@ -260,15 +272,15 @@ class NYTFeedViewController: UIViewController {
 		
 		self.foodButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionFood(_:)), forControlEvents: .TouchUpInside)
 		
-		view.addSubview(foodButton)
+		self.scrollButtons.addSubview(foodButton)
 		
 		
 		
 		//worldButton
 		self.worldButton = UIButton(type: .Custom)
 		
-		worldButton.frame = CGRect(x: 0, y: 285, width: 85, height: 45)
-		worldButton.center = CGPoint(x: 60, y: 285)
+		worldButton.frame = CGRect(x: 0, y: 90, width: 85, height: 45)
+		worldButton.center = CGPoint(x: 60, y: 90)
 		worldButton.backgroundColor = UIColor.blackColor()
 		worldButton.setTitle("World", forState: .Normal)
 		worldButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
@@ -280,13 +292,13 @@ class NYTFeedViewController: UIViewController {
 		
 		worldButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionWorld(_:)), forControlEvents: .TouchUpInside)
 		
-		view.addSubview(worldButton)
+		self.scrollButtons.addSubview(worldButton)
 		
 		//sportsButton
 		self.sportsButton = UIButton(type: .Custom)
 		
-		sportsButton.frame = CGRect(x: 0, y: 285, width: 85, height: 45)
-		sportsButton.center = CGPoint(x:frame.size.width-60, y: 285)
+		sportsButton.frame = CGRect(x: 0, y: 90, width: 85, height: 45)
+		sportsButton.center = CGPoint(x:frame.size.width-60, y: 90)
 		sportsButton.backgroundColor = UIColor.blackColor()
 		sportsButton.setTitle("Sports", forState: .Normal)
 		sportsButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
@@ -299,14 +311,14 @@ class NYTFeedViewController: UIViewController {
 		
 		sportsButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionSports(_:)), forControlEvents: .TouchUpInside)
 		
-		view.addSubview(sportsButton)
+		self.scrollButtons.addSubview(sportsButton)
 		
 		
 		//healthButton
 		self.healthButton = UIButton(type: .Custom)
 		
-		healthButton.frame = CGRect(x: 0, y: 230, width: 85, height: 45)
-		healthButton.center = CGPoint(x:frame.size.width-60, y: 230)
+		healthButton.frame = CGRect(x: 0, y: 35, width: 85, height: 45)
+		healthButton.center = CGPoint(x:frame.size.width-60, y: 35)
 		healthButton.backgroundColor = UIColor.blackColor()
 		healthButton.setTitle("Health", forState: .Normal)
 		healthButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
@@ -319,13 +331,13 @@ class NYTFeedViewController: UIViewController {
 		
 		healthButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionHealth(_:)), forControlEvents: .TouchUpInside)
 		
-		view.addSubview(healthButton)
+		self.scrollButtons.addSubview(healthButton)
 		
 		//opinionButton
 		self.opinionButton = UIButton(type: .Custom)
 		
-		self.opinionButton.frame = CGRect(x: 0, y: 230, width: 85, height: 45)
-		self.opinionButton.center = CGPoint(x: 0.5 * frame.size.width, y: 230)
+		self.opinionButton.frame = CGRect(x: 0, y: 35, width: 85, height: 45)
+		self.opinionButton.center = CGPoint(x: 0.5 * frame.size.width, y: 35)
 		self.opinionButton.backgroundColor = UIColor.blackColor()
 		self.opinionButton.setTitle("Opinion", forState: .Normal)
 		self.opinionButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
@@ -339,13 +351,13 @@ class NYTFeedViewController: UIViewController {
 		
 		self.opinionButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionOpinion(_:)), forControlEvents: .TouchUpInside)
 		
-		view.addSubview(opinionButton)
+		self.scrollButtons.addSubview(opinionButton)
 		
 		//USButton
 		self.USButton = UIButton(type: .Custom)
 		
-		self.USButton.frame = CGRect(x: 0, y: 230, width: 85, height: 45)
-		self.USButton.center = CGPoint(x: 60, y: 230)
+		self.USButton.frame = CGRect(x: 0, y: 35, width: 85, height: 45)
+		self.USButton.center = CGPoint(x: 60, y: 35)
 		self.USButton.backgroundColor = UIColor.blackColor()
 		self.USButton.setTitle("U.S.", forState: .Normal)
 		self.USButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
@@ -357,7 +369,7 @@ class NYTFeedViewController: UIViewController {
 		
 		USButton.addTarget(self, action: #selector(NYTFeedViewController.btnNextActionUSNews(_:)), forControlEvents: .TouchUpInside)
 		
-		view.addSubview(USButton)
+		self.scrollButtons.addSubview(USButton)
 		
 		self.view = view
 		

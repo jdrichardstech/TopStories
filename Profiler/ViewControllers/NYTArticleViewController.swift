@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-class NYTArticleViewController: UIViewController, SFSafariViewControllerDelegate {
+class NYTArticleViewController: UIViewController,UIScrollViewDelegate, SFSafariViewControllerDelegate {
 
 //MARK: - Variable Declarations
 	var imageView:UIImageView!
@@ -19,6 +19,7 @@ class NYTArticleViewController: UIViewController, SFSafariViewControllerDelegate
 	var abstractLabel:UILabel!
 	var datePublished: UILabel!
 	var webButton: UIButton!
+	var scrollArticle: UIScrollView!
 	
 	
 	// MARK: - Lifecycles
@@ -34,11 +35,29 @@ class NYTArticleViewController: UIViewController, SFSafariViewControllerDelegate
 		let view = UIView(frame: frame)
 		view.backgroundColor = UIColor.whiteColor()
 		
+		
+	
+		self.scrollArticle = UIScrollView(frame: CGRect(x:0, y:0, width:frame.size.width,height:frame.size.height))
+		
+		
+		view.addSubview(scrollArticle)
+		
+		scrollArticle.contentSize = CGSize(width: frame.size.width, height: frame.size.height + 100)
+		scrollArticle.pagingEnabled = false
+		scrollArticle.userInteractionEnabled = true
+		scrollArticle.delegate = self
+		
+		
+		
 		//add image
 		self.imageView = UIImageView(image: self.item.image)
 		self.imageView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: 250)
 		self.imageView.contentMode = .ScaleAspectFit
-		view.addSubview(imageView)
+		self.scrollArticle.addSubview(imageView)
+		
+		
+		
+		
 		
 		//add caption under image
 		self.captionLabel = UILabel(frame: CGRect(x: 10, y: 251, width: frame.size.width-20, height: 60))
@@ -46,7 +65,7 @@ class NYTArticleViewController: UIViewController, SFSafariViewControllerDelegate
 		self.captionLabel?.font = UIFont(name:"Avenir", size:12)
 		self.captionLabel?.numberOfLines=0
 		self.captionLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-		view.addSubview(captionLabel)
+		self.scrollArticle.addSubview(captionLabel)
 		
 		//add title
 		self.titleLabel = UILabel(frame: CGRect(x: 10, y: 325, width: frame.size.width-20, height: 40))
@@ -54,7 +73,7 @@ class NYTArticleViewController: UIViewController, SFSafariViewControllerDelegate
 		self.titleLabel?.font = UIFont(name:"HelveticaNeue-Bold", size:16)
 		self.titleLabel?.numberOfLines=0
 		self.titleLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-		view.addSubview(titleLabel)
+		self.scrollArticle.addSubview(titleLabel)
 		
 		//add date publised
 		self.datePublished = UILabel(frame: CGRect(x: 10, y: 365, width: frame.size.width-20, height: 30))
@@ -62,7 +81,7 @@ class NYTArticleViewController: UIViewController, SFSafariViewControllerDelegate
 		self.datePublished?.font = UIFont(name:"HelveticaNeue-Bold", size:12)
 		self.datePublished?.numberOfLines=0
 		self.datePublished?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-		view.addSubview(datePublished)
+		self.scrollArticle.addSubview(datePublished)
 		
 		
 		//add abstract
@@ -72,13 +91,13 @@ class NYTArticleViewController: UIViewController, SFSafariViewControllerDelegate
 		self.abstractLabel?.textColor = UIColor.grayColor()
 		self.abstractLabel?.numberOfLines=0
 		self.abstractLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-		view.addSubview(abstractLabel)
+		self.scrollArticle.addSubview(abstractLabel)
 		
 		
 		//go to website		button
 		self.webButton = UIButton(type: .Custom)
 		
-		webButton.frame = CGRect(x: 0, y: 465, width: 110, height: 45)
+		webButton.frame = CGRect(x: 0, y: 228, width: 110, height: 45)
 		webButton.center = CGPoint(x: 0.5 * frame.size.width, y: 465)
 		webButton.backgroundColor = UIColor.clearColor()
 		webButton.setTitle("Read Article", forState: .Normal)
@@ -90,7 +109,7 @@ class NYTArticleViewController: UIViewController, SFSafariViewControllerDelegate
 		webButton.titleLabel?.text = "Top Stories"
 		webButton.addTarget(self, action: #selector(NYTArticleViewController.goToUrl), forControlEvents: .TouchUpInside)
 		
-		view.addSubview(webButton)
+		self.scrollArticle.addSubview(webButton)
 		
 		self.view = view
 	}
